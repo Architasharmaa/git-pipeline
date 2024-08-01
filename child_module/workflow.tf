@@ -17,7 +17,7 @@ resource "newrelic_notification_channel" "foo" {
 }
 
 resource "newrelic_notification_destination" "foo88" {
-  account_id = var.account_id
+  account_id = var.newrelic_account_id
   name = var.destination.name
   type = var.destination.type
 
