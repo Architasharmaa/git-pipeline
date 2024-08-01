@@ -1,7 +1,8 @@
 name: Terraform
 
 on:
-   workflow_dispatch:
+  workflow_dispatch:
+
 jobs:
   terraform:
     name: 'Terraform'
@@ -13,7 +14,12 @@ jobs:
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
-        
+
+      - name: Configure Environment Variables
+        run: |
+          echo "ACCOUNT_ID=${{ secrets.ACCOUNT_ID }}" >> $GITHUB_ENV
+          echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+
       - name: Terraform Init
         run: terraform init
 
