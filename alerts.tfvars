@@ -20,7 +20,9 @@ new_relic_infra_alerts = {
     time_function = "all"
   }
 }
+
 policy_name = {
      name = "rudra"
 }
  account_id = 4438277
+api_key = "NRAK-E3GS6X7HIYRIFPH0Z6PAX2RRTW3"
