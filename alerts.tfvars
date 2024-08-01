@@ -23,4 +23,4 @@ new_relic_infra_alerts = {
 policy_name = {
      name = "rudra"
 }
-# account_id = 4438277
+ account_id = 4438277
