@@ -7,6 +7,6 @@ terraform {
   }
 }
 provider "newrelic" {
-  account_id = 4438277
-  api_key    = "NRAK-E3GS6X7HIYRIFPH0Z6PAX2RRTW3"
+  account_id = var.newrelic_account_id
+  api_key    = var.newrelic_api_key
 }
