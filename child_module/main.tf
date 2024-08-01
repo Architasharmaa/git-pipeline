@@ -30,7 +30,7 @@ resource "newrelic_service_level" "new" {
     description = var.sli.description
 
     events {
-        account_id = var.account_id
+        account_id = var.newrelic_account_id
         valid_events {
             from = var.sli.events.valid_events.from
             where = var.sli.events.valid_events.where
