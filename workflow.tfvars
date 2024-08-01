@@ -21,7 +21,7 @@ destination = {
   }
 }
 workflow = {
-   name = "nnnnn"
+   name = "archu"
   muting_rules_handling = "NOTIFY_ALL_ISSUES"
 
   issues_filter ={
