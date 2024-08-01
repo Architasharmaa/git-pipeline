@@ -15,17 +15,17 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
 
-      - name: Configure Environment Variables
-        run: |
-          echo "NEWRELIC_ACCOUNT_ID=${{ secrets.NEWRELIC_ACCOUNT_ID }}" >> $GITHUB_ENV
-          echo "NEWRELIC_API_KEY=${{ secrets.NEWRELIC_API_KEY }}" >> $GITHUB_ENV
-
       - name: Terraform Init
         run: terraform init
 
       - name: Terraform Plan
+        env:
+          NEWRELIC_ACCOUNT_ID: ${{ secrets.NEWRELIC_ACCOUNT_ID }}
+          NEWRELIC_API_KEY: ${{ secrets.NEWRELIC_API_KEY }}
         run: terraform plan -var "newrelic_account_id=$NEWRELIC_ACCOUNT_ID" -var "newrelic_api_key=$NEWRELIC_API_KEY"
 
       - name: Terraform Apply
+        env:
+          NEWRELIC_ACCOUNT_ID: ${{ secrets.NEWRELIC_ACCOUNT_ID }}
+          NEWRELIC_API_KEY: ${{ secrets.NEWRELIC_API_KEY }}
         run: terraform apply -auto-approve -var "newrelic_account_id=$NEWRELIC_ACCOUNT_ID" -var "newrelic_api_key=$NEWRELIC_API_KEY"
-
