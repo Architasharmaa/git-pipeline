@@ -17,14 +17,15 @@ jobs:
 
       - name: Configure Environment Variables
         run: |
-          echo "ACCOUNT_ID=${{ secrets.ACCOUNT_ID }}" >> $GITHUB_ENV
-          echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+          echo "NEWRELIC_ACCOUNT_ID=${{ secrets.NEWRELIC_ACCOUNT_ID }}" >> $GITHUB_ENV
+          echo "NEWRELIC_API_KEY=${{ secrets.NEWRELIC_API_KEY }}" >> $GITHUB_ENV
 
       - name: Terraform Init
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -var "newrelic_account_id=$NEWRELIC_ACCOUNT_ID" -var "newrelic_api_key=$NEWRELIC_API_KEY"
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var "newrelic_account_id=$NEWRELIC_ACCOUNT_ID" -var "newrelic_api_key=$NEWRELIC_API_KEY"
+
