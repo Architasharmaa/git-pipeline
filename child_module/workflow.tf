@@ -1,5 +1,5 @@
 resource "newrelic_notification_channel" "foo" {
-  account_id = var.account_id
+  account_id = var.newrelic_account_id
   name = var.notification_channel.name
   type = var.notification_channel.type
   destination_id = newrelic_notification_destination.foo88.id
