@@ -22,10 +22,10 @@ jobs:
       env:
         accountID: ${{ secrets.ACCOUNT_ID }}
         apikey: ${{ secrets.API_KEY }}
-      run: terraform plan -var="accountID=$accountID" -var="apikey=$apikey" --var-file="workflow.tfvars" --var-file="alerts.tfvars" --var-file="sli.tfvars" 
+      run: terraform plan -var="newrelic_account_id=$accountID" -var="newrelic_api_key=$apikey" --var-file="workflow.tfvars" --var-file="alerts.tfvars" --var-file="sli.tfvars" 
 
     - name: Terraform Apply
       env:
         accountID: ${{ secrets.ACCOUNT_ID }}
         apikey: ${{ secrets.API_KEY }}
-      run: terraform apply --auto-approve -var="accountID=$accountID" -var="apikey=$apikey" --var-file="workflow.tfvars" --var-file="alerts.tfvars" --var-file="sli.tfvars" 
+      run: terraform apply --auto-approve -var="newrelic_account_id=$accountID" -var="newrelic_api_key=$apikey" --var-file="workflow.tfvars" --var-file="alerts.tfvars" --var-file="sli.tfvars" 
